@@ -1,28 +1,43 @@
-import React from 'react';
-import { HeaderContainer, Logo,Actions} from '../../styles/HeaderStyle'
-import { Link } from 'react-router-dom';
+import React from 'react'
+import {
+  HeaderContainer,
+  CenterBlock,
+  Logo,
+  CartHeart,
+  Actions
+} from '../../styles/HeaderStyle'
+import { Link } from 'react-router-dom'
 import LogoImg from '../../assets/Logo.png'
-import SearchBar from './Header/SearchBar';
-import SignInOutBox from './Header/SignInOutBox';
-import CategoryNav from './Header/CategoryNav';
-//로고 /로그인(로그아웃) | 회원가입 /검색바
+import SearchBar from './Header/SearchBar'
+import SignInOutBox from './Header/SignInOutBox'
+import CategoryNav from './Header/CategoryNav'
+import { FaShoppingCart, FaHeart } from 'react-icons/fa'
+import { red } from '@mui/material/colors'
+
 const Header = () => (
   <>
+    {/* 최상단 로그인/회원가입 */}
+    <Actions><SignInOutBox /></Actions>
+    
+
+    {/* 로고+검색창(가로정중앙) + 아이콘(우측고정) */}
     <HeaderContainer>
-      {/* 누르면 메인으로 이동하게끔 */}
-      <Link to="/">
-        <Logo src={LogoImg} alt="Shop Logo" />
-      </Link>
+      <CenterBlock>
+        <Link to="/">
+          <Logo src={LogoImg} alt="Shop Logo" />
+        </Link>
+        <SearchBar />
+      </CenterBlock>
 
-      <SearchBar placeholder="상품을 검색하세요..." />
-      <Actions>
-        <SignInOutBox />
-      </Actions>
-     
+      <CartHeart>
+        <Link to="/bag"><FaShoppingCart size={40} style={{color:'rgb(0, 0, 0)'}} /></Link>
+        <Link to="/heart"><FaHeart size={40} style={{color:'rgb(255, 0, 0)'}}  /></Link>
+      </CartHeart>
     </HeaderContainer>
-    <CategoryNav></CategoryNav>
-  </>
-  );
-  
-  export default Header;
 
+    {/* 네비게이션 바 */}
+    <CategoryNav />
+  </>
+)
+
+export default Header;

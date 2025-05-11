@@ -32,7 +32,7 @@ export const Main = styled.main`
   flex-direction: column;
   gap: 20px;
   background-color: #f0faff;
-
+  
   @media (max-width: 768px) {
     width: 100%;
   }
@@ -54,6 +54,7 @@ export const MainContent = styled.div`
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 40px;

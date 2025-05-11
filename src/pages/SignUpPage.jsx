@@ -1,14 +1,14 @@
 import React from 'react';
+import SignUp from '../components/Sign/SignUp';
 import Header from '../components/Main/Header';
-import SliderImages from '../components/Main/SlideImages';
-import ProductPage from './product/ProductPage';
 import {LeftSide,
-        RightSide,
-        Main,
-        MainContent,
-        BodyWrapper,
+    RightSide,
+    Main,
+    MainContent,
+    BodyWrapper,
 } from '../styles/mainPage'
-const MainPage = () => {
+const SignUpPage = () => {
+
     return (
         <>
             {/* 상단 부분 */}
@@ -19,16 +19,12 @@ const MainPage = () => {
                 <LeftSide></LeftSide>
             <Main>
                 
-                <MainContent>
-                    <SliderImages />
-                    
-                    {/* 상품 뿌리는 부분 */}
-                    <ProductPage/>
-                    
-                    
-                </MainContent>
                 
-            </Main><RightSide></RightSide>
+                    <SignUp/>
+               
+                
+            </Main>
+                <RightSide></RightSide>
             </BodyWrapper>
             {/* 하단부분 */}
             
@@ -36,4 +32,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default SignUpPage;
