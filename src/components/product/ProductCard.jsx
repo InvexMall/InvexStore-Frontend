@@ -5,7 +5,7 @@ const ProductCard = ({ image, discount, price, name, rating, reviews }) => {
     const [isFavorite, setIsFavorite] = useState(false);
     
     return (
-      <div className="relative" style={{ padding: '0', margin: '0' }}>
+      <div className="relative" style={{ padding: '0', margin: '0', fontFamily: 'sans-serif' }}>
         {/* 상품 이미지 컨테이너 */}
         <div 
           className="relative" 
@@ -35,25 +35,25 @@ const ProductCard = ({ image, discount, price, name, rating, reviews }) => {
           
           {/* 입고알림 버튼 */}
           <div className="absolute top-2 right-2">
-            <button className="bg-white text-black text-xs px-2 py-1 rounded-sm border border-gray-300">입고알림</button>
+            <button className="bg-white text-black text-xs px-2 py-1 rounded-sm border border-gray-300 " style={{ fontFamily: 'sans-serif' }}>입고알림</button>
           </div>
         </div>
         
         {/* 상품 정보 - 아래 */}
         <div className="mt-2">
           <div className="mb-1">
-            <span className="text-sm">{name}</span>
+            <span className="text-sm " style={{ fontFamily: 'sans-serif' }}>{name}</span>
           </div>
           
           <div className="flex items-center">
             {discount && (
-              <span className="text-pink-500 font-medium mr-1">{discount}%</span>
+              <span className="text-pink-500 font-medium mr-1" style={{ fontFamily: 'sans-serif' }}>{discount}%</span>
             )}
-            <span className="font-bold">{price.toLocaleString()}원</span>
+            <span className="font-bold font-sans">{price.toLocaleString()}원</span>
           </div>
           
           {/* 별점 및 리뷰 수 */}
-          <div className="flex items-center mt-1 text-xs text-gray-700">
+          <div className="flex items-center mt-1 text-xs text-gray-700 " style={{ fontFamily: 'sans-serif' }}>
             <span>★{rating}</span>
             <span className="ml-1">({reviews})</span>
           </div>
