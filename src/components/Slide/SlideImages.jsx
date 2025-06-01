@@ -59,6 +59,7 @@ export default function SlideImages() {
 
   return (
     <SliderContainer>
+
       <Slider {...settings}>
         {images.map((src, idx) => (
           <div key={idx}>
@@ -74,6 +75,7 @@ export default function SlideImages() {
           </div>
         ))}
       </Slider>
+
     </SliderContainer>
   );
 }

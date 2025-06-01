@@ -3,63 +3,115 @@ import { Heart } from 'lucide-react';
 
 const ProductCard = ({ image, discount, price, name, rating, reviews }) => {
     const [isFavorite, setIsFavorite] = useState(false);
+
+    const toggleLike = (e) => {
+    e.preventDefault(); // 부모 요소 클릭 이벤트 방지
+    setIsFavorite(!isFavorite);
+  };
     
     return (
-      <div className="relative" style={{ padding: '0', margin: '0', fontFamily: 'sans-serif' }}>
-        {/* 상품 이미지 컨테이너 */}
-        <div 
-          className="relative" 
+    <div style={{ 
+      position: 'relative',
+      backgroundColor: '#f5f5f5',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    }}>
+      {/* 이미지 컨테이너 */}
+      <div style={{ 
+        position: 'relative',
+        width: '100%',
+        height: '200px',
+        backgroundColor: '#e8dcc0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* 실제 이미지 */}
+        <img 
+          src={image} 
+          alt={name}
           style={{ 
             width: '100%', 
-            backgroundColor: '#f5f0e5',
-            aspectRatio: '1/1',
+            height: '100%', 
+            objectFit: 'cover' 
+          }}
+        />
+
+        {/* 하트 아이콘 - 두 번째 코드 스타일로 변경 */}
+        <button
+          onClick={toggleLike}
+          style={{
+            position: 'absolute',
+            top: '8px',
+            left: '8px',
+            background: 'rgba(255, 255, 255, 0.9)',
+            border: 'none',
+            borderRadius: '50%',
+            width: '32px',
+            height: '32px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            cursor: 'pointer',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
           }}
         >
-          <img 
-            src={image} 
-            alt=""
-            style={{ 
-              maxWidth: '80%', 
-              maxHeight: '80%', 
-              objectFit: 'contain' 
-            }}
-            onError={(e) => {
-              e.target.onerror = null;
-              // 대체 이미지 대신 빈 이미지 사용
-              e.target.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
-            }}
+          <Heart
+            size={18}
+            fill={isFavorite ? '#ff6b6b' : 'none'}
+            color={isFavorite ? '#ff6b6b' : '#666'}
           />
-          
-          {/* 입고알림 버튼 */}
-          <div className="absolute top-2 right-2">
-            <button className="bg-white text-black text-xs px-2 py-1 rounded-sm border border-gray-300 " style={{ fontFamily: 'sans-serif' }}>입고알림</button>
-          </div>
-        </div>
+        </button>
+
+      </div>
+
+      {/* 상품 정보 */}
+      <div style={{ padding: '16px' }}>
+        <h3 style={{ 
+          margin: '0 0 8px 0', 
+          fontSize: '16px',
+          fontWeight: '500',
+          color: '#333'
+        }}>
+          {name}
+        </h3>
         
-        {/* 상품 정보 - 아래 */}
-        <div className="mt-2">
-          <div className="mb-1">
-            <span className="text-sm " style={{ fontFamily: 'sans-serif' }}>{name}</span>
-          </div>
-          
-          <div className="flex items-center">
-            {discount && (
-              <span className="text-pink-500 font-medium mr-1" style={{ fontFamily: 'sans-serif' }}>{discount}%</span>
-            )}
-            <span className="font-bold font-sans">{price.toLocaleString()}원</span>
-          </div>
-          
-          {/* 별점 및 리뷰 수 */}
-          <div className="flex items-center mt-1 text-xs text-gray-700 " style={{ fontFamily: 'sans-serif' }}>
-            <span>★{rating}</span>
-            <span className="ml-1">({reviews})</span>
-          </div>
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '8px',
+          marginBottom: '8px'
+        }}>
+          <span style={{ 
+            color: '#e53e3e', 
+            fontSize: '14px',
+            fontWeight: '600'
+          }}>
+            {discount}%
+          </span>
+          <span style={{ 
+            fontSize: '16px',
+            fontWeight: '600',
+            color: '#333'
+          }}>
+            {price}
+          </span>
+        </div>
+
+        <div style={{ 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: '4px'
+        }}>
+          <span style={{ color: '#ffa500', fontSize: '14px' }}>★</span>
+          <span style={{ fontSize: '14px', color: '#666' }}>
+            {rating}({reviews || 0})
+          </span>
         </div>
       </div>
-    );
+    </div>
+  );
   };
   
   export default ProductCard;

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 // import { products } from '../../data/product/product';
-import { useProductdata } from '../../hooks/useProductdata'
+import { useProductdata } from '../../hooks/Product/useProductdata'
 
 
 export default function ProductCardGrid() {
@@ -23,7 +23,7 @@ export default function ProductCardGrid() {
             }}
           >
             <ProductCard 
-              image={product.image}
+              image={`/images/${product.imgsrc}`}
               name={product.productname}
               price={product.productprice}
               discount={product.discountrate}

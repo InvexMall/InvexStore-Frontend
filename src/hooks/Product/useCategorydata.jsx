@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchProductData } from "../api/ProductApi";
+import { fetchMainCategoryData } from "../../api/Product/CategoryApi";
 
-export const useProductdata = () => {
-    const [products, setProducts] = useState([]);
+export const useMainCategoryData = () => {
+    const [Maincategorys, setMaincategorys] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // 캠페인 데이터 불러오기
-    const loadProducts = useCallback(async () => {
+    // 메인카테고리 리스트 받아오기
+    const loadMaincategorys = useCallback(async () => {
         try {
             setLoading(true);
             setError(null);
@@ -23,9 +23,8 @@ export const useProductdata = () => {
 
     // 컴포넌트 마운트 시 데이터 로드
     useEffect(() => {
-        console.log('컴포넌트 마운트됨');
-        loadProducts();
-    }, [loadProducts]);
+        loadMaincategorys();
+    }, [loadMaincategorys]);
 
     // const createCampaign = async (formData) => {
     //     try {
@@ -43,10 +42,9 @@ export const useProductdata = () => {
     // };
 
     return {
-        products,
+        Maincategorys,
         loading,
         error,
-        loadProducts,
+        loadMaincategorys,
     };
 };
-
