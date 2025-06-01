@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link as RouterLink } from 'react-router-dom';
-
+//헤더 스타일
 // 전체 헤더 래퍼 (새로 추가)
 export const HeaderWrapper = styled.div`
   background: #fff;
