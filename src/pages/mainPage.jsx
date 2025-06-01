@@ -7,7 +7,7 @@ import {LeftSide,
         Main,
         MainContent,
         BodyWrapper,
-} from '../styles/mainPage'
+} from '../styles/main/mainPage';
 const MainPage = () => {
     return (
         <>
