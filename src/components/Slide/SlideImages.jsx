@@ -54,6 +54,7 @@ export default function SlideImages() {
           <Slide src={src} alt={`slide-${idx}`} />
         </SwiperSlide>
       ))}
-    </Swiper></SliderContainer>
+    </Swiper>
+    </SliderContainer>
   );
 }
