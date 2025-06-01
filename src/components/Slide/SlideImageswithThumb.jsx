@@ -5,7 +5,8 @@ import {
     SliderContainer,
     Slide,
     Arrow
-} from '../../styles/main/SlideImgStyle';
+} from '../../styles/main/SwiperStyle';
+
 
 // Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
