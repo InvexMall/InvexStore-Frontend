@@ -9,7 +9,7 @@ import {
   SubMenu,
   SubMenuItem,
   StyledLink,
-} from '../../../styles/HeaderStyle';
+} from '../../../styles/main/HeaderStyle';
 import { TiThMenu } from 'react-icons/ti';
 import { categories } from '../../../data/category';
 

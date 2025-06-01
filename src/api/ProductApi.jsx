@@ -1,8 +1,8 @@
 import axios from "axios";
 
-// 공통 axios 인스턴스 생성
+// 공통 axios 인스턴스 생성 (프록시 활용)
 const api = axios.create({
-  baseURL: "http://localhost:8081/api/products",
+  baseURL: "/api/products", // Vite 프록시를 활용
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -10,16 +10,16 @@ const api = axios.create({
 });
 
 export const fetchProductData = async () => {
-    try {
-      //http://localhost:8081/api/productall
-      const response = await api.get("/all");
-      console.log('API 응답 받음:', response);
-      return response.data;
-    } catch (error) {
-      console.error("Error fetching product data:", error);
-      return [];
-    }
-  };
+  try {
+    // 실제 요청: /api/products/all → Vite가 http://localhost:8081/api/products/all로 프록시
+    const response = await api.get("/all");
+    console.log('API 응답 받음:', response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching product data:", error);
+    return [];
+  }
+};
   
   // //폼 작성 후 post
   // export const createCampaignData = async (formData) => {
