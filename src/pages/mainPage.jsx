@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Main/Header';
-import SliderImages from '../components/Main/SlideImages';
+import SliderImages from '../components/Slide/SlideImages';
 import ProductPage from './product/ProductPage';
 import {LeftSide,
         RightSide,
